@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#25221e"><title>云栖小寺 · 佛殿</title>
+<link rel="stylesheet" href="/style.css"><link rel="preload" as="image" href="/media/hall.webp">
+</head>
+<body><main>
+<header><div class="brand"><span class="seal" aria-hidden="true">栖</span><div><h1>云栖小寺</h1><p>大雄宝殿</p></div></div>
+  <div class="headTools"><button id="camera" aria-pressed="false" title="切换第一或第三人称">切换第一人称</button><button id="sound" aria-pressed="false"><span aria-hidden="true">♫</span> <span id="soundLabel">开启声音</span></button><div class="online"><i></i><span id="count">连接中</span></div></div></header>
+<section class="stage" aria-label="佛殿内部">
+  <canvas id="world" width="1440" height="900" tabindex="0" aria-label="佛殿。点击殿内地面或使用方向键行走，使用下方按钮烧香、合十跪拜。"></canvas>
+  <div id="theater" hidden aria-label="祈福动作特写">
+    <canvas id="animation" width="1280" height="720" aria-hidden="true"></canvas>
+    <video id="incenseFilm" playsinline muted preload="metadata" aria-label="烧香特写" src="/media/incense.mp4"></video>
+    <video id="bowFilm" playsinline muted preload="metadata" aria-label="合十跪拜特写" src="/media/bow.mp4"></video>
+    <div class="filmBar"><div class="filmTitle"><small id="filmName"></small><strong id="phase"></strong></div>
+    <div class="filmTools"><button id="filmStop">停止祈福</button><button id="expand" title="放大动作画面">放大</button><button id="skip">返回佛殿</button></div></div>
+    <div class="track"><i id="progress"></i></div>
+  </div>
+  <div class="overlay" id="overlay" hidden><strong id="message"></strong><button id="retry">再次进入</button></div>
+  <aside id="verseReveal" hidden aria-label="祈福题字">
+    <div class="versePaper"><div id="inkLines" aria-hidden="true"></div><span id="verseSeal"></span></div>
+    <span class="srOnly" id="verseReader" role="status"></span><button id="dismissVerse" aria-label="收起题字">收起</button>
+  </aside>
+</section>
+<section class="controls"><div class="identity"><span class="jewel" id="color"></span><div><small>我的香客</small><b id="name">入殿中…</b></div></div>
+  <div class="actions"><button id="watch" hidden>动作特写</button><button id="incense" disabled><span aria-hidden="true">♨</span> <b>烧香</b></button><button id="bow" disabled><span aria-hidden="true">合</span> <b>合十跪拜</b></button><button id="openLot" disabled>求签</button></div></section>
+<footer><span id="hint" role="status">点殿内地面行走，选一个动作祈福。</span><span id="activity"></span><button id="openRank" disabled>祈福榜 · <b id="roundCount">0</b> 次</button></footer>
+<dialog id="rankDialog" aria-labelledby="rankTitle"><div class="rankHead"><h2 id="rankTitle">祈福榜</h2><button id="closeRank" aria-label="关闭祈福榜">关闭</button></div>
+  <p>烧香或跪拜，完整一轮计一次。</p><ol id="rankRows"></ol><div id="myRank"></div></dialog>
+<audio id="music" src="/media/sanctuary.mp3" preload="none" loop></audio>
+<dialog id="lotDialog" aria-labelledby="lotHeading">
+  <div class="rankHead"><h2 id="lotHeading">殿前求签</h2><button id="closeLot">关闭</button></div>
+  <div class="bamboo" aria-hidden="true"><div class="slips"></div><div class="cup"><i>云栖</i></div></div>
+  <div id="lotResult" aria-live="polite"><p id="lotPrompt">把心里的一件事想清楚，摇出一支竹签。</p>
+    <section id="lotPaper" hidden><small id="lotNumber"></small><h3 id="lotTitle"></h3><p id="lotPoem"></p><p id="lotReading"></p></section>
+  </div>
+  <button id="shakeLot">摇签</button>
+</dialog>
+</main>
+<script src="/figure.js"></script><script src="/temple.js"></script><script src="/interior.js"></script><script src="/perspective.js"></script><script src="/world.js"></script><script src="/ritual.js"></script><script src="/audio.js"></script><script src="/player.js"></script><script src="/rewards.js"></script><script src="/fortune.js"></script><script src="/game.js"></script>
+</body></html>
+
